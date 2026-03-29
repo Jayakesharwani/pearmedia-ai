@@ -195,7 +195,7 @@ npm start
 
 ### 🎨 Creative Studio
 
-![Creative](../screenshots/Screenshot 2026-03-30 015738.png)
+![Creative](./screenshots/creativeStudio.png)
 
 ### 🖼️ Style Lab
 
