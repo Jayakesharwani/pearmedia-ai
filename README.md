@@ -199,11 +199,11 @@ npm start
 
 ### 🖼️ Style Lab
 
-![Style](./screenshots/style.png)
+![Style](./screenshots/styleLab.png)
 
 ### 🌙 Dark Mode
 
-![Dark Mode](./screenshots/dark.png)
+![Dark Mode](./screenshots/darkMode.png)
 
 ---
 
