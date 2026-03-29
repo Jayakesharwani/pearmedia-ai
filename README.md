@@ -160,6 +160,11 @@ Create `.env` file inside **backend folder**:
 REACT_APP_GEMINI_KEY=your_gemini_api_key
 HF_TOKEN=your_huggingface_token
 ```
+Create `.env` file inside root folder **pearmedia-ai** for frontend:
+
+```env id="q3r8l2"
+REACT_APP_GEMINI_KEY=your_gemini_api_key
+```
 
 ---
 
