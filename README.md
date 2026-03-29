@@ -180,7 +180,6 @@ node server.js
 #### Start Frontend
 
 ```bash id="f4y9d8"
-cd frontend
 npm start
 ```
 
