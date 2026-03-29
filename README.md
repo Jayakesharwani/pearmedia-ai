@@ -100,7 +100,7 @@ Used for:
 **Endpoint:**
 
 ```id="9e4y2b"
-https://router.huggingface.co/models/runwayml/stable-diffusion-v1-5
+https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0
 ```
 
 ---
@@ -216,7 +216,7 @@ npm start
 
   * Dark mode 🌙
   * Example prompts
-  * Loading animation
+  * Image Download Functionality
 * Real-world AI pipeline simulation
 
 ---
@@ -239,4 +239,5 @@ Developed as part of the **Pear Media AI Lab Assignment**.
 
 ## 📄 License
 
-This project is for educational and demonstration purposes only.
+This project is created as part of an assignment submission for **Pear Media**. 
+It is not intended for public reuse or distribution.
