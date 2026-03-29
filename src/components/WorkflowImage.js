@@ -56,7 +56,7 @@ Make it visually appealing and realistic.
 
    {analysis && (
   <>
-    <p><strong>Give Analysis:</strong></p>
+    <p><strong>Give Prompt:</strong></p>
    
 
     <textarea
