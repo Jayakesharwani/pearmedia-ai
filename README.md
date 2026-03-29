@@ -129,7 +129,7 @@ https://router.huggingface.co/models/runwayml/stable-diffusion-v1-5
 ### 1. Clone Repository
 
 ```bash id="k2m9x4"
-git clone <your-repo-link>
+git clone https://github.com/Jayakesharwani/pearmedia-ai
 cd pearmedia-ai
 ```
 
