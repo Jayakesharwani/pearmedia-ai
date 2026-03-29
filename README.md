@@ -140,7 +140,6 @@ cd pearmedia-ai
 #### Frontend
 
 ```bash id="v8d1p3"
-cd frontend
 npm install
 ```
 
