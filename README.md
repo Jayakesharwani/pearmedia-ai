@@ -157,7 +157,7 @@ npm install
 Create `.env` file inside **backend folder**:
 
 ```env id="q3r8l2"
-GEMINI_API_KEY=your_gemini_api_key
+REACT_APP_GEMINI_KEY=your_gemini_api_key
 HF_TOKEN=your_huggingface_token
 ```
 
