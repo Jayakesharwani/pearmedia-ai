@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import WorkflowText from "./components/WorkflowText";
+import WorkflowImage from "./components/WorkflowImage";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [tab, setTab] = useState("text");
+  const [isLoading, setIsLoading] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+return (
+  <div className={darkMode ? "app dark" : "app"}>
+    
+    
+    <div className="header">
+      <h1>Pear Media AI Lab</h1>
+
+      <button
+        className="dark-toggle"
+        onClick={() => setDarkMode(!darkMode)}
+      >
+        {darkMode ? "☀️" : "🌙"}
+      </button>
     </div>
-  );
+
+    <div className="tabs">
+      <button onClick={() => setTab("text")}>Creative Studio</button>
+      <button onClick={() => setTab("image")}>Style Lab</button>
+    </div>
+
+    {isLoading && (
+      <p className="loading">Generating... ✨</p>
+    )}
+
+    {tab === "text" ? (
+      <WorkflowText setIsLoading={setIsLoading} />
+    ) : (
+      <WorkflowImage setIsLoading={setIsLoading} />
+    )}
+  </div>
+);
 }
 
 export default App;

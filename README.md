@@ -1,70 +1,239 @@
-# Getting Started with Create React App
+# 🚀 Pear Media AI Lab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered web application that combines **text generation** and **image synthesis** to create a seamless creative experience using modern generative AI models.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Project Overview
 
-### `npm start`
+**Pear Media AI Lab** is designed to explore real-world AI workflows by integrating:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* ✍️ Prompt enhancement (LLM)
+* 🖼️ Image understanding (Vision AI)
+* 🎨 Image generation (Diffusion models)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+It provides two main modules:
 
-### `npm test`
+* **Creative Studio** – Transform ideas into enhanced prompts and generate images
+* **Style Lab** – Upload an image, analyze it, and generate stylized variations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ✨ Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🎨 Creative Studio
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Enter a basic idea or prompt
+* AI enhances the prompt using Gemini
+* Generate high-quality images from enhanced prompts
+* Example prompts for quick testing
+* Download generated images
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 🖼️ Style Lab
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Upload an image from local system
+* Preview uploaded image
+* AI analyzes:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  * Main objects
+  * Color palette
+  * Artistic style
+* Add custom instructions (e.g., *“make it Pixar style”*)
+* Generate AI-based variations
+* Download generated images
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧠 Project Flow
 
-## Learn More
+### 🔹 Text Workflow
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. User enters prompt
+2. Gemini enhances the prompt
+3. Enhanced prompt → Image generation API
+4. Image displayed + download option
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 🔹 Image Workflow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. User uploads image
+2. FileReader converts image → Base64
+3. Base64 sent to Gemini Vision model
+4. AI extracts:
 
-### Analyzing the Bundle Size
+   * Objects
+   * Colors
+   * Style
+5. User adds custom instructions
+6. Final prompt constructed
+7. Stable Diffusion generates new image
+8. Output displayed + download option
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🔌 API Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🔹 Google Gemini API
 
-### Advanced Configuration
+Used for:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Prompt enhancement
+* Image analysis (Vision)
 
-### Deployment
+**Endpoint:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```id="c7q0w1"
+https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 🔹 Hugging Face API
+
+Used for:
+
+* Image generation (Stable Diffusion)
+
+**Endpoint:**
+
+```id="9e4y2b"
+https://router.huggingface.co/models/runwayml/stable-diffusion-v1-5
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* CSS (Custom Styling)
+
+### Backend
+
+* Node.js
+* Express.js
+
+### AI Models
+
+* Gemini 2.5 Flash (Text + Vision)
+* Stable Diffusion (Image Generation)
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone Repository
+
+```bash id="k2m9x4"
+git clone <your-repo-link>
+cd pearmedia-ai
+```
+
+---
+
+### 2. Install Dependencies
+
+#### Frontend
+
+```bash id="v8d1p3"
+cd frontend
+npm install
+```
+
+#### Backend
+
+```bash id="t5z7n6"
+cd backend
+npm install
+```
+
+---
+
+### 3. Environment Variables
+
+Create `.env` file inside **backend folder**:
+
+```env id="q3r8l2"
+GEMINI_API_KEY=your_gemini_api_key
+HF_TOKEN=your_huggingface_token
+```
+
+---
+
+### 4. Run the Project
+
+#### Start Backend
+
+```bash id="n6x2p5"
+cd backend
+node server.js
+```
+
+#### Start Frontend
+
+```bash id="f4y9d8"
+cd frontend
+npm start
+```
+
+---
+
+## 📸 Screenshots
+
+> Add your screenshots in a `/screenshots` folder and link them below.
+
+### 🏠 Home Page
+
+![Home](./screenshots/home.png)
+
+### 🎨 Creative Studio
+
+![Creative](./screenshots/creative.png)
+
+### 🖼️ Style Lab
+
+![Style](./screenshots/style.png)
+
+### 🌙 Dark Mode
+
+![Dark Mode](./screenshots/dark.png)
+
+---
+
+## 🚀 Key Highlights
+
+* Combines **AI automation + user control**
+* Implements **human-in-the-loop prompting**
+* Handles image processing using **Base64 encoding**
+* Clean UI with:
+
+  * Dark mode 🌙
+  * Example prompts
+  * Loading animation
+* Real-world AI pipeline simulation
+
+---
+
+## 💡 Future Improvements
+
+* Image history gallery
+* Multiple style presets
+* Drag-and-drop upload
+* Share/shareable links
+* Better prompt templates
+
+---
+
+## 👨‍💻 Author
+
+Developed as part of the **Pear Media AI Lab Assignment**.
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes only.
