@@ -46,10 +46,11 @@ SUMMARY: ...
   }
 };
 
- 
+const BASE_URL = process.env.REACT_APP_API_URL;
+
 export const generateImage = async (prompt) => {
   try {
-    const res = await fetch("http://localhost:5000/generate-image", {
+    const res = await fetch(`${BASE_URL}/generate-image`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,26 +59,22 @@ export const generateImage = async (prompt) => {
     });
 
     const data = await res.json();
+    return data;
 
-    console.log("BACKEND RESPONSE:", data); 
-
-    return data;  
   } catch (err) {
     console.log("ERROR:", err);
   }
 };
 
- 
 export const analyzeImage = async (base64) => {
-  const res = await fetch("http://localhost:5000/analyze-image", {
+  const res = await fetch(`${BASE_URL}/analyze-image`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({  image: base64 }), 
+    body: JSON.stringify({ image: base64 }),
   });
 
   const data = await res.json();
-  console.log("API RESPONSE:", data);
   return data.analysis;
 };
