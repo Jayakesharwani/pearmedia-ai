@@ -49,18 +49,18 @@ It provides two main modules:
 
 ### 🔹 Text Workflow
 
-User Prompt 
-   ↓
-Gemini Prompt Enhancement (Cinematic Prompt) 
-   ↓
-Enhanced Prompt 
-   ↓
-Stable Diffusion XL (Image Generation) 
-   ↓
-Generated Image 
-   ↓
-+ AI Summary 
-   ↓
+User Prompt  
+↓  
+Gemini Prompt Enhancement (Cinematic Prompt)  
+↓  
+Enhanced Prompt  
+↓  
+Stable Diffusion XL (Image Generation)  
+↓  
+Generated Image  
+↓  
+AI Summary  
+↓  
 Download Option
 
 ---
