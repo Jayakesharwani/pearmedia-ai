@@ -34,13 +34,10 @@ It provides two main modules:
 ### 🖼️ Style Lab
 
 * Upload an image from local system
-
 * AI analyzes:
-
   * Main objects
   * Color palette
   * Artistic style  
-
 * A quick summarization generated from the analyzed points 
 * Add custom instructions (e.g., *“make it Pixar-style”*)
 * Generate AI-based variations with summaries
@@ -283,15 +280,10 @@ npm start
 * Implements **human-in-the-loop prompting**
 * Handles image processing using **Base64 encoding**
 * Clean UI with:
-
   * Dark mode 🌙
   * Example prompts
-<<<<<<< HEAD
   * Image Download Functionality
-=======
   * Loading animation
-
->>>>>>> ac80fb8 (Updated features and fixed bugs)
 * Real-world AI pipeline simulation
 
 ---
