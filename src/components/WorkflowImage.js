@@ -6,6 +6,7 @@ function WorkflowImage({ setIsLoading }) {
   const [analysis, setAnalysis] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [userPrompt, setUserPrompt] = useState("");
+  const [summary, setSummary] = useState("");
 
   const handleGenerate = async () => {
   setIsLoading(true);
@@ -24,9 +25,10 @@ Enhance quality, lighting, and style.
 Make it visually appealing and realistic.
 `;
 
-  const img = await generateImage(finalPrompt);
-  setImageUrl(img);
-
+  const result = await generateImage(finalPrompt);
+  
+setImageUrl(result.image);    
+setSummary(result.summary);  
   setIsLoading(false);
 };
 
@@ -38,6 +40,7 @@ Make it visually appealing and realistic.
     setIsLoading(true);
 
     const base64 = reader.result.split(",")[1];
+    console.log("BASE64:", base64);
 
     const result = await analyzeImage(base64);
     setAnalysis(result);
@@ -55,8 +58,9 @@ Make it visually appealing and realistic.
       <input type="file" onChange={handleUpload} />
 
    {analysis && (
-  <>
-    <p><strong>Give Prompt:</strong></p>
+  <> 
+    <p><strong>Analysis:</strong></p> 
+    <pre className="analysis-text">{analysis}</pre>
    
 
     <textarea
@@ -72,7 +76,11 @@ Make it visually appealing and realistic.
 )}   <div> 
       {imageUrl && (
   <>
-    <img src={imageUrl} alt="generated" />
+    <img src={imageUrl} alt="generated" /> 
+    <div> 
+         <p className="section-title">Summary</p>
+        <p className="analysis-text">{summary}</p>
+    </div>
  <div> 
     <a href={imageUrl} download="generated-image.png">
       <button>Download Image</button>

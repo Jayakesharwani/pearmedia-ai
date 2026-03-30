@@ -1,4 +1,4 @@
-//TEXT ENHANCEMENT
+ 
 export const getEnhancedPrompt = async (input) => {
   try {
     const res = await fetch(
@@ -13,7 +13,17 @@ export const getEnhancedPrompt = async (input) => {
             {
               parts: [
                 {
-                  text: `Enhance this into a cinematic 50-word image prompt: ${input}`,
+                  text: `
+Do two things:
+1. Enhance this into a cinematic 50-word image prompt
+2. Also give a short 1-line summary
+
+Input: ${input}
+
+Return in this format:
+ENHANCED: ...
+SUMMARY: ...
+`,
                 },
               ],
             },
@@ -23,16 +33,20 @@ export const getEnhancedPrompt = async (input) => {
     );
 
     const data = await res.json();
-    console.log("Gemini Response:", data);
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-    return data?.candidates?.[0]?.content?.parts?.[0]?.text || "Failed";
+    const enhancedPrompt = text.split("SUMMARY:")[0].replace("ENHANCED:", "").trim();
+    const summary = text.split("SUMMARY:")[1]?.trim();
+
+    return { enhancedPrompt, summary };
+
   } catch (err) {
     console.log(err);
-    return "Error occurred";
+    return { enhancedPrompt: "", summary: "" };
   }
 };
 
-//IMAGE GENERATION  
+ 
 export const generateImage = async (prompt) => {
   try {
     const res = await fetch("http://localhost:5000/generate-image", {
@@ -47,22 +61,23 @@ export const generateImage = async (prompt) => {
 
     console.log("BACKEND RESPONSE:", data); 
 
-    return data.image;  
+    return data;  
   } catch (err) {
     console.log("ERROR:", err);
   }
 };
 
-//IMAGE ANALYSIS
+ 
 export const analyzeImage = async (base64) => {
   const res = await fetch("http://localhost:5000/analyze-image", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ base64 }),
+    body: JSON.stringify({  image: base64 }), 
   });
 
   const data = await res.json();
+  console.log("API RESPONSE:", data);
   return data.analysis;
 };

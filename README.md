@@ -1,6 +1,6 @@
 # 🚀 Pear Media AI Lab
 
-An AI-powered web application that combines **text generation** and **image synthesis** to create a seamless creative experience using modern generative AI models.
+An AI-powered web application that combines **text generation** and **image synthesis** to create a seamless creative experience using modern generative AI models. The project integrates computer vision, prompt engineering, and image generation into a seamless workflow.
 
 ---
 
@@ -14,8 +14,8 @@ An AI-powered web application that combines **text generation** and **image synt
 
 It provides two main modules:
 
-* **Creative Studio** – Transform ideas into enhanced prompts and generate images
-* **Style Lab** – Upload an image, analyze it, and generate stylized variations
+* **Creative Studio** – Transform ideas into enhanced prompts and generate images with summaries
+* **Style Lab** – Upload an image, analyze it, and generate stylized variations with summerizations
 
 ---
 
@@ -25,7 +25,7 @@ It provides two main modules:
 
 * Enter a basic idea or prompt
 * AI enhances the prompt using Gemini
-* Generate high-quality images from enhanced prompts
+* Generate high-quality images from enhanced prompts with summaries
 * Example prompts for quick testing
 * Download generated images
 
@@ -34,14 +34,16 @@ It provides two main modules:
 ### 🖼️ Style Lab
 
 * Upload an image from local system
-* Preview uploaded image
+
 * AI analyzes:
 
   * Main objects
   * Color palette
-  * Artistic style
-* Add custom instructions (e.g., *“make it Pixar style”*)
-* Generate AI-based variations
+  * Artistic style  
+
+* A quick summarization generated from the analyzed points 
+* Add custom instructions (e.g., *“make it Pixar-style”*)
+* Generate AI-based variations with summaries
 * Download generated images
 
 ---
@@ -50,43 +52,68 @@ It provides two main modules:
 
 ### 🔹 Text Workflow
 
-1. User enters prompt
-2. Gemini enhances the prompt
-3. Enhanced prompt → Image generation API
-4. Image displayed + download option
+User Prompt 
+   ↓
+Gemini Prompt Enhancement (Cinematic Prompt) 
+   ↓
+Enhanced Prompt 
+   ↓
+Stable Diffusion XL (Image Generation) 
+   ↓
+Generated Image 
+   ↓
++ AI Summary 
+   ↓
+Download Option
 
 ---
 
 ### 🔹 Image Workflow
 
-1. User uploads image
-2. FileReader converts image → Base64
-3. Base64 sent to Gemini Vision model
-4. AI extracts:
-
-   * Objects
-   * Colors
-   * Style
-5. User adds custom instructions
-6. Final prompt constructed
-7. Stable Diffusion generates new image
-8. Output displayed + download option
+Image Upload 
+   ↓
+Base64 Conversion 
+   ↓
+Gemini Vision Analysis (Objects + Style + Colors) 
+   ↓
+Concise AI Summary 
+   ↓
++ User Instructions 
+   ↓
+Final Prompt Construction 
+   ↓
+Stable Diffusion XL (Image Generation) 
+   ↓
+Generated Image Output 
+   ↓
++ AI Summary (Post-generation) 
+   ↓
+Download Option
 
 ---
 
 ## 🔌 API Usage
 
-### 🔹 Google Gemini API
+### 🔹 Google Gemini (Hybrid Usage)
+
+✅ Backend (Google GenAI SDK)
+
+Used for:
+
+* Image analysis (Vision)
+* Summary generation
+
+
+✅ Frontend (REST API)
 
 Used for:
 
 * Prompt enhancement
-* Image analysis (Vision)
 
 **Endpoint:**
 
 ```id="c7q0w1"
-https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent
+https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
 ```
 
 ---
@@ -95,7 +122,7 @@ https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateCon
 
 Used for:
 
-* Image generation (Stable Diffusion)
+* Image generation (Stable Diffusion XL)
 
 **Endpoint:**
 
@@ -120,9 +147,43 @@ https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-x
 ### AI Models
 
 * Gemini 2.5 Flash (Text + Vision)
-* Stable Diffusion (Image Generation)
+* Stable Diffusion XL (via Hugging Face for Image Generation)
 
 ---
+
+## 📁 Project Structure
+
+```bash
+pearmedia-ai/
+│
+├── public/                           # Static assets
+│   ├── index.html
+│
+├── src/                              # React frontend
+│   ├── components/                   # UI components
+│   │   ├── WorkflowImage.js
+│   │   ├── WorkflowText.js
+│   │   ├── index.css                 # Component styles
+│   │
+│   ├── utils/                        # API helper functions
+│   │   ├── apiHelpers.js
+│   │
+│   ├── App.js                        # Main app component
+│   ├── App.css                       # Global styles
+│   ├── index.js                      # Entry point
+│
+├── backend/                          # Node.js backend
+│   ├── server.js                     # Express server & routes
+│   ├── .env                          # Backend environment variables
+│   ├── package.json
+│
+├── .env                              # Frontend environment variables
+├── package.json                      # Root config
+├── README.md
+``` 
+
+--- 
+
 
 ## ⚙️ Installation & Setup
 
@@ -205,6 +266,15 @@ npm start
 
 ![Dark Mode](./screenshots/darkMode.png)
 
+--- 
+
+## ⚠️ Important Notes 
+
+* Gemini API has daily request limits (free tier)
+* Hugging Face has monthly usage credits
+* Restart backend after updating .env
+* Large image inputs may increase response time significantly
+
 ---
 
 ## 🚀 Key Highlights
@@ -216,12 +286,17 @@ npm start
 
   * Dark mode 🌙
   * Example prompts
+<<<<<<< HEAD
   * Image Download Functionality
+=======
+  * Loading animation
+
+>>>>>>> ac80fb8 (Updated features and fixed bugs)
 * Real-world AI pipeline simulation
 
 ---
 
-## 💡 Future Improvements
+## 💡 Future Enhancements
 
 * Image history gallery
 * Multiple style presets
