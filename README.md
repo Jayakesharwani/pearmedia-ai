@@ -67,24 +67,24 @@ Download Option
 
 ### 🔹 Image Workflow
 
-Image Upload 
-   ↓
-Base64 Conversion 
-   ↓
-Gemini Vision Analysis (Objects + Style + Colors) 
-   ↓
-Concise AI Summary 
-   ↓
-+ User Instructions 
-   ↓
-Final Prompt Construction 
-   ↓
-Stable Diffusion XL (Image Generation) 
-   ↓
-Generated Image Output 
-   ↓
-+ AI Summary (Post-generation) 
-   ↓
+Image Upload  
+↓  
+Base64 Conversion  
+↓  
+Gemini Vision Analysis (Objects + Style + Colors)  
+↓  
+Concise AI Summary  
+↓  
+User Instructions  
+↓  
+Final Prompt Construction  
+↓  
+Stable Diffusion XL (Image Generation)  
+↓  
+Generated Image Output  
+↓  
+AI Summary (Post-generation)  
+↓  
 Download Option
 
 ---
