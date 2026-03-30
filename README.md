@@ -4,6 +4,13 @@ An AI-powered web application that combines **text generation** and **image synt
 
 ---
 
+## 🌐 Live Demo
+
+* **Frontend:** (https://pearmedia-owhji2gx2-jayakesharwanis-projects.vercel.app/)  
+* **Backend:** https://pearmedia-ai-backend.onrender.com
+
+---
+
 ## 📌 Project Overview
 
 **Pear Media AI Lab** is designed to explore real-world AI workflows by integrating:
